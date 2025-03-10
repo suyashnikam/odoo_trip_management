@@ -1,0 +1,30 @@
+<odoo>
+    <record id="view_trip_odometer_wizard_form" model="ir.ui.view">
+        <field name="name">trip.odometer.wizard.form</field>
+        <field name="model">trip.odometer.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Update Trip Odometer">
+                <sheet>
+                    <group>
+                        <field name="trip_id" readonly="1"/>
+                        <field name="odometer_start"/>
+                        <field name="odometer_end"/>
+                        <field name="attachment"/>
+                    </group>
+                    <footer>
+                        <button string="Confirm" type="object" name="update_trip_info" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_trip_wizard" model="ir.actions.act_window">
+        <field name="name">Update Trip Odometer</field>
+        <field name="res_model">trip.odometer.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_trip_odometer_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

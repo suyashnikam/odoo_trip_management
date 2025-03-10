@@ -1,0 +1,43 @@
+<odoo>
+
+    <report
+        id="report_trip"
+        model="trip.trip"
+        string="Trip Report"
+        report_type="qweb-pdf"
+        file="trip_management.report_trip"
+        name="trip_management.report_trip"
+    />
+
+    <template id="report_trip">
+        <t t-call="web.external_layout">
+            <t t-foreach="docs" t-as="doc">
+                <main class="page">
+                    <h2>Trip Report</h2>
+                    <p><strong>Name:</strong> <t t-esc="doc.name"/></p> 
+                    <p><strong>Driver:</strong> <t t-esc="doc.driver_id.name"/></p> 
+                    <p><strong>Vehicle:</strong> <t t-esc="doc.license_plate.name"/></p> 
+                    <p><strong>Weight Capacity:</strong> <t t-esc="doc.weight_capacity"/> kg</p>
+                    <t t-if="doc.batch_id">
+                        <h3>Batches</h3>
+                        <ul>
+                            <li><t t-esc="doc.batch_id.name"/></li>
+                        </ul>
+                    </t>
+                </main>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_trip" model="ir.actions.report">
+        <field name="name">Trip Report</field>
+        <field name="model">trip.trip</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">trip_management.report_trip</field>
+        <field name="report_file">trip_management.report_trip</field>
+        <field name="print_report_name">'Trip_Report_%s' % (object.name)</field>
+        <field name="attachment">'trip_report.pdf'</field>
+        <field name="binding_model_id" ref="model_trip_trip"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

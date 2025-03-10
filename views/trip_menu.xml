@@ -1,0 +1,14 @@
+<odoo>
+    
+    <record id="action_trip" model="ir.actions.act_window">
+        <field name="name">Trips</field>
+        <field name="res_model">trip.trip</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>Create and manage Trips for pickings.</p>
+        </field>
+    </record>
+    
+    <menuitem id="menu_trip_root" name="Trips" parent="stock.menu_stock_warehouse_mgmt" sequence="10" action="action_trip"/>
+
+</odoo>

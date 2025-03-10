@@ -1,0 +1,20 @@
+{
+    'name': 'Trip Management',
+    'version': '17.0.1.0.0',
+    'category': 'Inventory',
+    'summary': 'Manage trips, assign drivers, and create batches for pickings.',
+    'author': 'Suyash Nikam',
+    'website': 'https://github.com/suyashnikam',
+    'depends': ['stock', 'fleet', 'hr', 'stock_picking_batch'],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/trip_sequence.xml',
+        'views/trip_menu.xml',
+        'views/wizard_view.xml',
+        'reports/trip_report.xml',
+        'views/trip_view.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'license': 'LGPL-3',
+}
